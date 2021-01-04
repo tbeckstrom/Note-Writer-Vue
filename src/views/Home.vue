@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="editor">
+    <div class="">
       <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">
         <div class="menubar">
-          <v-btn 
+          <v-btn
             icon
             plain
             tile
@@ -12,129 +12,182 @@
             :class="{ 'is-active': isActive.bold() }"
             @click="commands.bold"
           >
-          <v-icon>mdi-format-bold</v-icon>
+            <v-icon>mdi-format-bold</v-icon>
           </v-btn>
-          <!-- <button
-            class="menubar__button"
-            :class="{ 'is-active': isActive.bold() }"
-            @click="commands.bold"
-          >
-            <icon name="bold" />
-          </button> -->
 
-          <button
+          <v-btn
+            icon
+            plain
+            tile
+            color="primary"
             class="menubar__button"
             :class="{ 'is-active': isActive.italic() }"
-            @click="commands.italic"
+            @click="commands.bold"
           >
-            <icon name="italic" />
-          </button>
+            <v-icon>mdi-format-italic</v-icon>
+          </v-btn>
 
-          <button
+          <v-btn
+            icon
+            plain
+            tile
+            color="primary"
             class="menubar__button"
             :class="{ 'is-active': isActive.strike() }"
             @click="commands.strike"
           >
-            <icon name="strike" />
-          </button>
+            <v-icon>mdi-format-strikethrough</v-icon>
+          </v-btn>
 
-          <button
+          <v-btn
+            icon
+            plain
+            tile
+            color="primary"
             class="menubar__button"
             :class="{ 'is-active': isActive.underline() }"
             @click="commands.underline"
           >
-            <icon name="underline" />
-          </button>
+            <v-icon>mdi-format-underline</v-icon>
+          </v-btn>
 
-          <button
+          <v-btn
+            icon
+            plain
+            tile
+            color="primary"
+            class="menubar__button"
+            :class="{ 'is-active': isActive.paragraph() }"
+            @click="commands.paragraph"
+          >
+            <v-icon>mdi-format-paragraph</v-icon>
+          </v-btn>
+
+          <v-btn
+            icon
+            plain
+            tile
+            color="primary"
+            class="menubar__button"
+            :class="{ 'is-active': isActive.heading({ level: 1 }) }"
+            @click="commands.heading({ level: 1 })"
+          >
+            <v-icon>mdi-format-header-1</v-icon>
+          </v-btn>
+
+          <v-btn
+            icon
+            plain
+            tile
+            color="primary"
+            class="menubar__button"
+            :class="{ 'is-active': isActive.heading({ level: 2 }) }"
+            @click="commands.heading({ level: 2 })"
+          >
+            <v-icon>mdi-format-header-2</v-icon>
+          </v-btn>
+
+          <v-btn
+            icon
+            plain
+            tile
+            color="primary"
+            class="menubar__button"
+            :class="{ 'is-active': isActive.heading({ level: 3 }) }"
+            @click="commands.heading({ level: 3 })"
+          >
+            <v-icon>mdi-format-header-3</v-icon>
+          </v-btn>
+
+          <!-- <button
             class="menubar__button"
             :class="{ 'is-active': isActive.code() }"
             @click="commands.code"
           >
             <icon name="code" />
-          </button>
+          </button> -->
 
-          <button
-            class="menubar__button"
-            :class="{ 'is-active': isActive.paragraph() }"
-            @click="commands.paragraph"
-          >
-            <icon name="paragraph" />
-          </button>
-
-          <button
-            class="menubar__button"
-            :class="{ 'is-active': isActive.heading({ level: 1 }) }"
-            @click="commands.heading({ level: 1 })"
-          >
-            H1
-          </button>
-
-          <button
-            class="menubar__button"
-            :class="{ 'is-active': isActive.heading({ level: 2 }) }"
-            @click="commands.heading({ level: 2 })"
-          >
-            H2
-          </button>
-
-          <button
-            class="menubar__button"
-            :class="{ 'is-active': isActive.heading({ level: 3 }) }"
-            @click="commands.heading({ level: 3 })"
-          >
-            H3
-          </button>
-
-          <button
+          <v-btn
+            icon
+            plain
+            tile
+            color="primary"
             class="menubar__button"
             :class="{ 'is-active': isActive.bullet_list() }"
             @click="commands.bullet_list"
           >
-            <icon name="ul" />
-          </button>
+            <v-icon>mdi-format-list-bulleted</v-icon>
+          </v-btn>
 
-          <button
+          <v-btn
+            icon
+            plain
+            tile
+            color="primary"
             class="menubar__button"
             :class="{ 'is-active': isActive.ordered_list() }"
             @click="commands.ordered_list"
           >
-            <icon name="ol" />
-          </button>
+            <v-icon>mdi-format-list-numbered</v-icon>
+          </v-btn>
 
-          <button
+          <v-btn
+            icon
+            plain
+            tile
+            color="primary"
             class="menubar__button"
             :class="{ 'is-active': isActive.blockquote() }"
             @click="commands.blockquote"
           >
-            <icon name="quote" />
-          </button>
+            <v-icon>mdi-format-quote-close</v-icon>
+          </v-btn>
 
-          <button
+          <v-btn
+            icon
+            plain
+            tile
+            color="primary"
+            class="menubar__button"
+            @click="commands.horizontal_rule"
+          >
+            <v-icon>mdi-minus</v-icon>
+          </v-btn>
+
+          <v-btn
+            icon
+            plain
+            tile
+            color="primary"
+            class="menubar__button"
+            @click="commands.undo"
+          >
+            <v-icon>mdi-undo</v-icon>
+          </v-btn>
+
+          <v-btn
+            icon
+            plain
+            tile
+            color="primary"
+            class="menubar__button"
+            @click="commands.redo"
+          >
+            <v-icon>mdi-redo</v-icon>
+          </v-btn>
+
+          <!-- <button
             class="menubar__button"
             :class="{ 'is-active': isActive.code_block() }"
             @click="commands.code_block"
           >
             <icon name="code" />
-          </button>
-
-          <button class="menubar__button" @click="commands.horizontal_rule">
-            <icon name="hr" />
-          </button>
-
-          <button class="menubar__button" @click="commands.undo">
-            <icon name="undo" />
-          </button>
-
-          <button class="menubar__button" @click="commands.redo">
-            <icon name="redo" />
-          </button>
+          </button> -->
         </div>
       </editor-menu-bar>
 
       <editor-content class="editor__content" :editor="editor" />
     </div>
-    <editor-content :editor="editor" />
     <v-card v-for="t in templates" :key="t.id">
       <v-card-title primary-title>
         {{ t.name }}
@@ -153,6 +206,8 @@ import { mapGetters, mapActions, Store } from "vuex";
 import store from "../store";
 // import Icon from "Components/Icon";
 import { Editor, EditorContent, EditorMenuBar } from "tiptap";
+import DynamicLinkNodeComponent from "../tiptap-nodes-custom/dynamicLinkNode";
+
 import {
   Blockquote,
   CodeBlock,
@@ -177,7 +232,7 @@ export default {
   name: "Home",
   components: {
     EditorContent,
-    EditorMenuBar,
+    EditorMenuBar
     // Icon
   },
   data() {
@@ -200,7 +255,8 @@ export default {
           new Italic(),
           new Strike(),
           new Underline(),
-          new History()
+          new History(),
+          new DynamicLinkNodeComponent()
         ],
         content: `
           <h2>
@@ -215,9 +271,10 @@ export default {
               A regular list
             </li>
             <li>
-              With regular items
+              With regular <span class="dynamic-link" linkRef="🤖">whatever</span>items
             </li>
           </ul>
+          
           <blockquote>
             It's amazing 👏
             <br />
@@ -227,7 +284,16 @@ export default {
       })
     };
   },
-  methods: {},
+  methods: {
+    insertDynamicLink: function(state, dispatch) {
+      const type = this.editor.nodes["dynamic-link"];
+      const { $from } = state.selection;
+      if (!$from.parent.canReplaceWith($from.index(), $from.index(), type))
+        return false;
+      dispatch(state.tr.replaceSelectionWith(type.create()));
+      return true;
+    }
+  },
   computed: {
     ...mapGetters(["templates"]),
     ...mapActions(["bindTemplates"]),
